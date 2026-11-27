@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HEMANT &amp; RANJANA — The Wedding of the Year</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Bebas Neue, Cinzel, Montserrat, Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500;1,600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#050505',
+            charcoal: '#111113',
+            crimson: '#b8000c',
+            crimsonBright: '#e50914',
+            crimsonDark: '#4a0004',
+            steel: '#9a9aa0',
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            serifItalic: ['"Playfair Display"', 'serif'],
+            body: ['"Montserrat"', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* =========================================================
+       CORE ATMOSPHERIC STYLING — 'THE BATMAN' AESTHETIC
+       ========================================================= */
+    :root {
+      --crimson: #b8000c;
+      --crimson-bright: #e50914;
+      --crimson-dark: #4a0004;
+      --obsidian: #050505;
+    }
+
+    html, body {
+      background-color: #050505;
+      color: #f2f2f2;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Sleek Crimson Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #050505;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #b8000c;
+      border-radius: 9999px;
+    }
+
+    /* Film Grain Overlay */
+    .film-grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.065;
+      mix-blend-mode: overlay;
+    }
+
+    /* Scroll Reveal Transitions */
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-d1 { transition-delay: 0.14s; }
+    .reveal-d2 { transition-delay: 0.28s; }
+    .reveal-d3 { transition-delay: 0.42s; }
+
+    /* Section 1: Deep Crimson Poster Background */
+    .hero-bg {
+      background: radial-gradient(circle at 50% 45%, #d0000e 0%, #b8000c 36%, #6e0007 72%, #190002 100%);
+    }
+    .hero-vignette {
+      background:
+        radial-gradient(ellipse at center, transparent 35%, rgba(5, 5, 5, 0.78) 100%),
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 3px);
+    }
+
+    /* Vertical Edge Names */
+    .vertical-left {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+    .vertical-right {
+      writing-mode: vertical-rl;
+    }
+
+    /* Subtle Bat Pulse */
+    @keyframes batPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+    .bat-pulse {
+      animation: batPulse 3.6s ease-in-out infinite;
+    }
+
+    /* Crimson Glow Effects */
+    .crimson-glow {
+      text-shadow: 0 0 26px rgba(229, 9, 20, 0.65), 0 0 58px rgba(184, 0, 12, 0.38);
+    }
+
+    /* Backlit Batman Rim Halo */
+    @keyframes rimBreathe {
+      0%, 100% {
+        box-shadow: 0 0 60px rgba(229, 9, 20, 0.5), 0 0 130px rgba(184, 0, 12, 0.32), inset 0 0 32px rgba(255, 70, 80, 0.25);
+      }
+      50% {
+        box-shadow: 0 0 92px rgba(229, 9, 20, 0.8), 0 0 175px rgba(184, 0, 12, 0.5), inset 0 0 48px rgba(255, 95, 105, 0.35);
+      }
+    }
+    .rim-halo {
+      animation: rimBreathe 4.8s ease-in-out infinite;
+    }
+
+    /* Bat-Signal Beam & Disc */
+    .signal-beam {
+      clip-path: polygon(43% 100%, 57% 100%, 100% 0, 0 0);
+      background: linear-gradient(to top, rgba(229, 9, 20, 0.42), rgba(229, 9, 20, 0.04));
+      filter: blur(10px);
+      transition: all 0.45s ease;
+    }
+    .signal-ignited .signal-beam {
+      background: linear-gradient(to top, rgba(229, 9, 20, 0.82), rgba(229, 9, 20, 0.18));
+      transform: translateX(-50%) scaleX(1.32);
+    }
+
+    @keyframes orbGlow {
+      0%, 100% {
+        box-shadow: 0 0 42px rgba(229, 9, 20, 0.55), 0 0 90px rgba(184, 0, 12, 0.35);
+      }
+      50% {
+        box-shadow: 0 0 68px rgba(229, 9, 20, 0.85), 0 0 130px rgba(184, 0, 12, 0.5);
+      }
+    }
+    .signal-orb {
+      animation: orbGlow 3.6s ease-in-out infinite;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .signal-ignited .signal-orb {
+      transform: scale(1.1);
+      box-shadow: 0 0 95px rgba(255, 45, 55, 0.98), 0 0 170px rgba(229, 9, 20, 0.85) !important;
+    }
+
+    /* Dossier Cards */
+    .dossier-card {
+      background: linear-gradient(145deg, rgba(18, 16, 18, 0.94), rgba(8, 7, 8, 0.98));
+      border: 1px solid rgba(184, 0, 12, 0.32);
+      border-top: 3px solid #b8000c;
+      transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+    }
+    .dossier-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(229, 9, 20, 0.85);
+      box-shadow: 0 14px 38px rgba(184, 0, 12, 0.24);
+    }
+    .dossier-card-main {
+      background: linear-gradient(145deg, rgba(44, 5, 9, 0.96), rgba(11, 5, 6, 0.98));
+      border: 1.5px solid rgba(229, 9, 20, 0.82);
+      border-top: 4px solid #e50914;
+      box-shadow: 0 0 42px rgba(229, 9, 20, 0.24), inset 0 0 26px rgba(229, 9, 20, 0.1);
+    }
+    .dossier-card-main:hover {
+      box-shadow: 0 16px 52px rgba(229, 9, 20, 0.44), inset 0 0 32px rgba(229, 9, 20, 0.16);
+    }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+      background: rgba(4, 4, 5, 0.88);
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-[#f2f2f2] antialiased selection:bg-crimsonBright selection:text-white">
+
+  <!-- Inline SVG Film Grain Overlay -->
+  <svg class="film-grain w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <filter id="grainFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grainFilter)" />
+  </svg>
+
+  <!-- Global Lightning Flash Overlay -->
+  <div id="lightning-flash" class="fixed inset-0 z-40 pointer-events-none opacity-0 transition-opacity duration-100 bg-[radial-gradient(circle_at_50%_25%,rgba(255,235,235,0.95),rgba(229,9,20,0.38)_55%,transparent_100%)]"></div>
+
+  <!-- =========================================================
+       TOP-RIGHT FLOATING TOGGLE: AUTO-SCROLL REEL MODE
+       ========================================================= -->
+  <div class="fixed top-4 right-4 z-50">
+    <button
+      id="reel-toggle-btn"
+      type="button"
+      aria-label="Toggle Auto-Scroll Reel Mode"
+      class="flex items-center gap-2 rounded-full bg-obsidian/85 hover:bg-crimsonBright border border-crimsonBright/80 px-4 py-2 font-display text-sm sm:text-base tracking-[0.16em] text-white shadow-lg shadow-black/75 backdrop-blur-md transition-all duration-300 cursor-pointer"
+    >
+      <span id="reel-dot" class="h-2 w-2 rounded-full bg-crimsonBright animate-pulse"></span>
+      <span id="reel-label">AUTO-SCROLL REEL MODE</span>
+    </button>
+  </div>
+
+  <!-- =========================================================
+       SECTION 1: CRIMSON POSTER HERO
+       (No Shree Ganeshaya Namah, No Date)
+       ========================================================= -->
+  <header id="hero-section" class="hero-bg relative min-h-screen w-full flex flex-col items-center justify-between overflow-hidden">
+    <!-- Animated Flying Bats Canvas -->
+    <canvas id="bats-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
+
+    <!-- Grungy Vignette -->
+    <div class="hero-vignette absolute inset-0 pointer-events-none z-10"></div>
+
+    <!-- Left Vertical Name: HEMANT -->
+    <div class="absolute left-1.5 sm:left-4 lg:left-7 top-0 bottom-0 z-20 flex items-center justify-center pointer-events-none select-none">
+      <span class="vertical-left font-display text-obsidian/90 text-[clamp(3.2rem,9.5vw,8.8rem)] leading-none tracking-[0.14em]">
+        HEMANT
+      </span>
+    </div>
+
+    <!-- Right Vertical Name: RANJANA -->
+    <div class="absolute right-1.5 sm:right-4 lg:right-7 top-0 bottom-0 z-20 flex items-center justify-center pointer-events-none select-none">
+      <span class="vertical-right font-display text-obsidian/90 text-[clamp(3.2rem,9.5vw,8.8rem)] leading-none tracking-[0.14em]">
+        RANJANA
+      </span>
+    </div>
+
+    <!-- Top Spacer -->
+    <div class="h-14" aria-hidden="true"></div>
+
+    <!-- Centerpiece Poster Block -->
+    <div class="relative z-20 flex flex-col items-center text-center px-14 sm:px-24 my-auto py-8">
+      <!-- Central Bat Emblem -->
+      <svg class="bat-pulse w-28 sm:w-40 md:w-48 h-auto text-obsidian mb-5 drop-shadow-[0_10px_22px_rgba(0,0,0,0.55)]" viewBox="0 0 240 86" fill="currentColor" aria-label="Batman Emblem">
+        <path d="M120 14 L114 27 L108 18 L105 32 C92 32 77 26 64 16 C51 28 30 31 6 25 C23 38 33 48 40 58 C50 49 66 48 80 54 C90 47 104 50 113 62 L120 76 L127 62 C136 50 150 47 160 54 C174 48 190 49 200 58 C207 48 217 38 234 25 C210 31 189 28 176 16 C163 26 148 32 135 32 L132 18 L126 27 Z" />
+      </svg>
+
+      <h1 class="font-display text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] text-obsidian leading-[0.88] tracking-[0.06em] select-none drop-shadow-[0_6px_24px_rgba(0,0,0,0.35)]">
+        THE WEDDING
+      </h1>
+
+      <div class="mt-3 sm:mt-4 flex items-center gap-3 sm:gap-5">
+        <span class="h-[2px] w-7 sm:w-14 bg-obsidian/75"></span>
+        <p class="font-serifItalic italic text-xl sm:text-3xl md:text-4xl tracking-[0.16em] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.7)]">
+          of the year
+        </p>
+        <span class="h-[2px] w-7 sm:w-14 bg-obsidian/75"></span>
+      </div>
+    </div>
+
+    <!-- Scroll Down Cue -->
+    <div class="relative z-20 pb-8">
+      <a href="#rain-section" class="flex flex-col items-center gap-2 text-obsidian hover:text-white transition-colors">
+        <span class="font-body text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase">Scroll Down</span>
+        <div class="w-6 h-10 rounded-full border-2 border-current flex justify-center pt-1.5">
+          <span class="w-1.5 h-2.5 bg-current rounded-full animate-bounce"></span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Smooth Gradient Blend to Obsidian -->
+    <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-obsidian pointer-events-none z-10"></div>
+  </header>
+
+  <!-- =========================================================
+       SECTION 2: RAIN REVEAL
+       (ONLY "IT'S OFFICIAL" & "WE ARE GETTING MARRIED")
+       ========================================================= -->
+  <section id="rain-section" class="relative min-h-screen w-full bg-obsidian flex flex-col items-center justify-center text-center px-5 py-24 overflow-hidden">
+    <!-- Red-Tinted Falling Rain Canvas -->
+    <canvas id="rain-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-10 opacity-75"></canvas>
+
+    <!-- Subtle Crimson Ambient Glow -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(184,0,12,0.22),transparent_60%)] pointer-events-none"></div>
+
+    <div class="relative z-20 max-w-4xl mx-auto flex flex-col items-center">
+      <!-- Backlit Batman Silhouette -->
+      <div class="reveal mb-10 sm:mb-12">
+        <div class="rim-halo w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-gradient-to-b from-crimsonBright via-crimson to-crimsonDark flex items-end justify-center overflow-hidden border border-crimsonBright/50">
+          <svg class="w-52 sm:w-64 h-auto translate-y-2 text-obsidian" viewBox="0 0 260 280" fill="currentColor" aria-label="Backlit Batman Silhouette">
+            <!-- Cape -->
+            <path d="M130 68 C94 76 56 98 32 152 C18 184 10 226 4 280 L256 280 C250 226 242 184 228 152 C204 98 166 76 130 68 Z" />
+            <!-- Cowl & Ears -->
+            <path d="M107 72 L103 22 L116 48 C121 46 139 46 144 48 L157 22 L153 72 C156 82 153 96 145 103 L130 112 L115 103 C107 96 104 82 107 72 Z" />
+            <!-- Shoulders -->
+            <path d="M72 114 C90 96 112 92 130 92 C148 92 170 96 188 114 L208 166 L190 280 L70 280 L52 166 Z" />
+            <!-- Luminous Eye Slits -->
+            <polygon points="114,76 125,79 116,81" fill="#ffd6d9" opacity="0.95" />
+            <polygon points="146,76 135,79 144,81" fill="#ffd6d9" opacity="0.95" />
+          </svg>
+        </div>
+      </div>
+
+      <p class="reveal reveal-d1 font-display text-3xl sm:text-4xl md:text-5xl tracking-[0.34em] text-crimsonBright crimson-glow">
+        IT&apos;S OFFICIAL
+      </p>
+
+      <h2 class="reveal reveal-d2 mt-3 font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-[0.1em] text-white leading-none">
+        WE ARE GETTING MARRIED
+      </h2>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 3: INTERACTIVE BAT-SIGNAL & TRIYUGINARAYAN SKYLINE
+       ========================================================= -->
+  <section id="signal-section" class="relative min-h-[92vh] w-full flex flex-col items-center justify-between pt-20 pb-0 overflow-hidden border-t border-crimson/25 bg-[radial-gradient(ellipse_at_top,#1d0306_0%,#050505_68%)]">
+    <!-- Crimson Spotlight Beam -->
+    <div class="signal-beam absolute bottom-16 left-1/2 -translate-x-1/2 w-72 sm:w-96 h-[78%] pointer-events-none z-10"></div>
+
+    <!-- Clickable / Tappable Bat-Signal -->
+    <div class="relative z-20 flex flex-col items-center text-center px-5">
+      <p class="reveal font-body text-[11px] sm:text-xs font-semibold tracking-[0.4em] uppercase text-steel mb-6">
+        Tap The Signal
+      </p>
+
+      <button
+        id="bat-signal-btn"
+        type="button"
+        aria-label="Activate Bat-Signal"
+        class="signal-orb group relative w-44 h-44 sm:w-56 sm:h-56 rounded-full bg-gradient-to-br from-[#ff3b47] via-crimsonBright to-crimsonDark flex items-center justify-center border-4 border-white/25 cursor-pointer focus:outline-none focus:ring-4 focus:ring-crimsonBright/50"
+      >
+        <span class="absolute inset-2 rounded-full border border-white/20 pointer-events-none"></span>
+        <svg class="w-32 sm:w-40 h-auto text-obsidian transition-transform duration-300 group-hover:scale-105" viewBox="0 0 240 86" fill="currentColor" aria-hidden="true">
+          <path d="M120 14 L114 27 L108 18 L105 32 C92 32 77 26 64 16 C51 28 30 31 6 25 C23 38 33 48 40 58 C50 49 66 48 80 54 C90 47 104 50 113 62 L120 76 L127 62 C136 50 150 47 160 54 C174 48 190 49 200 58 C207 48 217 38 234 25 C210 31 189 28 176 16 C163 26 148 32 135 32 L132 18 L126 27 Z" />
+        </svg>
+      </button>
+
+      <p id="signal-status" class="mt-7 font-body text-xs sm:text-sm font-semibold tracking-[0.28em] uppercase text-crimsonBright transition-colors duration-300">
+        When The Night Calls, We Answer
+      </p>
+    </div>
+
+    <!-- Himalayan Mountain & Triyuginarayan Temple Silhouette Skyline -->
+    <div class="relative z-20 w-full mt-12">
+      <svg class="w-full h-44 sm:h-60 md:h-72 block" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-label="Himalayan Mountain and Triyuginarayan Temple Silhouette">
+        <!-- Distant Himalayan Peaks -->
+        <path d="M0 245 L120 148 L240 202 L385 82 L520 184 L645 104 L720 142 L835 80 L995 178 L1145 96 L1295 186 L1390 128 L1440 170 L1440 320 L0 320 Z" fill="#170406" />
+
+        <!-- Mid Mountain Ridges -->
+        <path d="M0 270 L160 205 L310 240 L480 185 L620 240 L820 240 L970 188 L1130 236 L1280 198 L1440 250 L1440 320 L0 320 Z" fill="#0d0304" />
+
+        <!-- Centerpiece: Triyuginarayan Temple Silhouette -->
+        <g fill="#050505">
+          <!-- Base Stone Plinth -->
+          <rect x="590" y="252" width="260" height="68" />
+          <!-- Shikhara -->
+          <path d="M652 252 L670 150 L770 150 L788 252 Z" />
+          <!-- Pahadi Wooden Canopy (Chhatri) -->
+          <polygon points="638,150 720,118 802,150" />
+          <rect x="658" y="150" width="124" height="10" />
+          <!-- Kalash & Sacred Flag -->
+          <rect x="717" y="90" width="6" height="30" />
+          <circle cx="720" cy="112" r="6" />
+          <polygon points="723,92 754,100 723,108" fill="#e50914" />
+          <!-- Mandapa Roof -->
+          <polygon points="600,252 642,210 798,210 840,252" />
+          <!-- Sanctum Akhand Dhuni Glow -->
+          <path d="M708 252 L708 226 C708 218 732 218 732 226 L732 252 Z" fill="#e50914" opacity="0.88" />
+        </g>
+
+        <!-- Foreground Ground -->
+        <rect x="0" y="294" width="1440" height="26" fill="#050505" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 4: SAVE THE NIGHT & LIVE COUNTDOWN
+       ========================================================= -->
+  <section id="countdown-section" class="relative w-full py-24 sm:py-32 px-5 bg-obsidian border-t border-crimson/20">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="reveal font-display text-xl sm:text-2xl tracking-[0.42em] text-crimsonBright mb-3">
+        SAVE THE NIGHT
+      </p>
+
+      <h2 class="reveal reveal-d1 font-display text-7xl sm:text-9xl md:text-[10rem] tracking-[0.1em] text-crimsonBright crimson-glow leading-none">
+        03 . 03 . 27
+      </h2>
+
+      <p class="reveal reveal-d2 mt-4 font-cinzel text-xs sm:text-sm md:text-base tracking-[0.26em] uppercase text-steel">
+        19 Gate Phagun &nbsp;&bull;&nbsp; <span class="text-white">Triyuginarayan, Uttarakhand</span>
+      </p>
+
+      <!-- Live Countdown Grid (Target: March 3, 2027 00:00:00 IST) -->
+      <div class="reveal reveal-d3 mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 max-w-3xl mx-auto">
+        <div class="rounded-2xl bg-charcoal border border-crimson/40 p-5 sm:p-6 shadow-[0_0_24px_rgba(184,0,12,0.14)]">
+          <div id="cd-days" class="font-display text-5xl sm:text-6xl text-white tracking-wider leading-none">000</div>
+          <div class="mt-2 font-body text-[11px] font-semibold tracking-[0.26em] uppercase text-crimsonBright">Days</div>
+        </div>
+        <div class="rounded-2xl bg-charcoal border border-crimson/40 p-5 sm:p-6 shadow-[0_0_24px_rgba(184,0,12,0.14)]">
+          <div id="cd-hours" class="font-display text-5xl sm:text-6xl text-white tracking-wider leading-none">00</div>
+          <div class="mt-2 font-body text-[11px] font-semibold tracking-[0.26em] uppercase text-crimsonBright">Hours</div>
+        </div>
+        <div class="rounded-2xl bg-charcoal border border-crimson/40 p-5 sm:p-6 shadow-[0_0_24px_rgba(184,0,12,0.14)]">
+          <div id="cd-minutes" class="font-display text-5xl sm:text-6xl text-white tracking-wider leading-none">00</div>
+          <div class="mt-2 font-body text-[11px] font-semibold tracking-[0.26em] uppercase text-crimsonBright">Minutes</div>
+        </div>
+        <div class="rounded-2xl bg-charcoal border border-crimson/40 p-5 sm:p-6 shadow-[0_0_24px_rgba(184,0,12,0.14)]">
+          <div id="cd-seconds" class="font-display text-5xl sm:text-6xl text-crimsonBright tracking-wider leading-none">00</div>
+          <div class="mt-2 font-body text-[11px] font-semibold tracking-[0.26em] uppercase text-steel">Seconds</div>
+        </div>
+      </div>
+
+      <p id="cd-status" class="mt-6 font-body text-[11px] tracking-[0.28em] uppercase text-steel/75">
+        Countdown to 03 March 2027 &bull; 00:00 IST
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 5: 4-DAY MISSION DOSSIER ITINERARY
+       ========================================================= -->
+  <section id="itinerary-section" class="relative w-full py-24 sm:py-32 px-5 bg-obsidian border-t border-crimson/20">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="reveal font-display text-lg sm:text-xl tracking-[0.4em] text-crimsonBright mb-2">
+          MISSION DOSSIER
+        </p>
+        <h2 class="reveal reveal-d1 font-display text-5xl sm:text-7xl tracking-[0.12em] text-white">
+          THE 4-DAY ITINERARY
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <!-- DAY 01: SUNDAY, 28 FEBRUARY 2027 -->
+        <article class="reveal dossier-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="font-display text-lg tracking-[0.24em] text-crimsonBright">DAY 01 &bull; SUNDAY</span>
+              <span class="rounded-full bg-crimson/15 border border-crimson/40 px-3 py-0.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-crimsonBright">16 Gate Phagun</span>
+            </div>
+            <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-white pb-4 mb-5 border-b border-white/10">
+              28 February 2027
+            </h3>
+
+            <ul class="space-y-3.5 text-sm text-gray-300 mb-6">
+              <li class="flex justify-between gap-3">
+                <span class="font-semibold text-white">Mahila Sangeet</span>
+                <span class="text-right text-steel">2:00 PM &bull; Residence</span>
+              </li>
+              <li class="flex justify-between gap-3">
+                <span class="font-semibold text-white">Mehndi (Ring Ceremony)</span>
+                <span class="text-right text-crimsonBright font-medium">7:00 PM &bull; Rama Farms</span>
+              </li>
+              <li class="flex justify-between gap-3">
+                <span class="font-semibold text-white">Pritibhoj</span>
+                <span class="text-right text-crimsonBright font-medium">8:00 PM &bull; Rama Farms</span>
+              </li>
+            </ul>
+
+            <p class="text-xs text-steel leading-relaxed mb-6">
+              <span class="text-gray-200 font-semibold">Venue:</span> Rama Farms, Nathuwala, Near Subhash Chandra Bose Academy, Raipur
+            </p>
+          </div>
+
+          <a
+            href="https://maps.app.goo.gl/UuisBnW87mMoQZHA9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-crimson/15 hover:bg-crimsonBright border border-crimsonBright/70 py-3 font-display text-lg tracking-[0.2em] text-white hover:text-obsidian transition-all duration-300"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-5.686-6-10a6 6 0 1112 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
+            DIRECTIONS &mdash; RAMA FARMS
+          </a>
+        </article>
+
+        <!-- DAY 02: MONDAY, 01 MARCH 2027 -->
+        <article class="reveal reveal-d1 dossier-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="font-display text-lg tracking-[0.24em] text-crimsonBright">DAY 02 &bull; MONDAY</span>
+              <span class="rounded-full bg-crimson/15 border border-crimson/40 px-3 py-0.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-crimsonBright">17 Gate Phagun</span>
+            </div>
+            <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-white pb-4 mb-5 border-b border-white/10">
+              01 March 2027
+            </h3>
+
+            <ul class="space-y-3.5 text-sm text-gray-300 mb-6">
+              <li class="flex justify-between gap-3">
+                <span class="font-semibold text-white">Ganesh Pujan</span>
+                <span class="text-steel">8:00 AM</span>
+              </li>
+              <li class="flex justify-between gap-3">
+                <span class="font-semibold text-white">Haldi Haath</span>
+                <span class="text-steel">9:00 AM</span>
+              </li>
+              <li class="flex justify-between gap-3">
+                <span class="font-semibold text-white">Mangal Snan</span>
+                <span class="text-steel">10:00 AM</span>
+              </li>
+              <li class="flex justify-between gap-3">
+                <span class="font-semibold text-white">Pritibhoj</span>
+                <span class="text-crimsonBright font-medium">1:30 PM</span>
+              </li>
+            </ul>
+
+            <p class="text-xs text-steel leading-relaxed mb-6">
+              <span class="text-gray-200 font-semibold">Venue:</span> Shubharambh Vaatika, Near 6 No. Puliya, Raipur
+            </p>
+          </div>
+
+          <a
+            href="https://maps.app.goo.gl/Ak5U7GTumkyHNEcc9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-crimson/15 hover:bg-crimsonBright border border-crimsonBright/70 py-3 font-display text-lg tracking-[0.2em] text-white hover:text-obsidian transition-all duration-300"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-5.686-6-10a6 6 0 1112 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
+            DIRECTIONS &mdash; SHUBHARAMBH VAATIKA
+          </a>
+        </article>
+
+        <!-- DAY 03: TUESDAY, 02 MARCH 2027 -->
+        <article class="reveal dossier-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="font-display text-lg tracking-[0.24em] text-crimsonBright">DAY 03 &bull; TUESDAY</span>
+              <span class="rounded-full bg-crimson/15 border border-crimson/40 px-3 py-0.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-crimsonBright">18 Gate Phagun</span>
+            </div>
+            <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-white pb-4 mb-5 border-b border-white/10">
+              02 March 2027
+            </h3>
+
+            <ul class="space-y-3.5 text-sm text-gray-300 mb-6">
+              <li class="flex justify-between gap-3">
+                <span class="font-semibold text-white">Baraat Prasthan</span>
+                <span class="text-crimsonBright font-medium">8:00 AM</span>
+              </li>
+            </ul>
+
+            <p class="text-xs text-steel leading-relaxed">
+              Departure towards the sacred Himalayan shrine of Triyuginarayan.
+            </p>
+          </div>
+        </article>
+
+        <!-- DAY 04: WEDNESDAY, 03 MARCH 2027 (HIGHLIGHTED MAIN EVENT) -->
+        <article class="reveal reveal-d1 dossier-card dossier-card-main rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full bg-crimsonBright/20 border border-crimsonBright/70 px-3 py-1 mb-3">
+              <span class="w-2 h-2 rounded-full bg-crimsonBright animate-pulse"></span>
+              <span class="text-[10px] font-bold tracking-[0.22em] uppercase text-white">Main Event &bull; The Wedding</span>
+            </div>
+
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="font-display text-lg tracking-[0.24em] text-crimsonBright">DAY 04 &bull; WEDNESDAY</span>
+              <span class="rounded-full bg-crimsonBright/25 border border-crimsonBright/60 px-3 py-0.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-white">19 Gate Phagun</span>
+            </div>
+            <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-white pb-4 mb-5 border-b border-crimsonBright/35">
+              03 March 2027
+            </h3>
+
+            <ul class="space-y-3.5 text-sm text-gray-200 mb-6">
+              <li class="flex flex-col gap-1">
+                <div class="flex justify-between gap-3">
+                  <span class="font-bold text-white">Vivah Sanskar</span>
+                  <span class="text-gray-200 font-medium">Shubh Lagnanusar</span>
+                </div>
+                <span class="font-cinzel text-sm font-bold tracking-[0.16em] text-crimsonBright uppercase">
+                  Triyuginarayan
+                </span>
+              </li>
+              <li class="pt-3 border-t border-white/10 flex justify-between gap-3">
+                <span class="font-semibold text-white">Var-Vadhu Griha Pravesh</span>
+                <span class="text-gray-300 font-medium">9:00 PM</span>
+              </li>
+            </ul>
+
+            <p class="text-xs text-gray-300 leading-relaxed mb-6">
+              <span class="text-white font-semibold">Venue:</span> Triyuginarayan Temple, Uttarakhand
+            </p>
+          </div>
+
+          <a
+            href="https://maps.app.goo.gl/cwryzvE8Lyqz9cUD6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-gradient-to-r from-crimson to-crimsonBright hover:from-crimsonBright hover:to-crimson border border-white/25 py-3 font-display text-lg tracking-[0.2em] text-white shadow-lg shadow-crimsonBright/35 transition-all duration-300"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-5.686-6-10a6 6 0 1112 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
+            DIRECTIONS &mdash; TRIYUGINARAYAN
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 6: CLOSING & RSVP ('SUIT UP')
+       (No Vinit section, no parent names, addresses, or phone numbers)
+       ========================================================= -->
+  <footer id="rsvp-section" class="relative w-full py-24 sm:py-32 px-5 text-center border-t border-crimson/25 bg-[radial-gradient(circle_at_bottom,#260003_0%,#050505_68%)]">
+    <div class="max-w-3xl mx-auto flex flex-col items-center">
+      <!-- SUIT UP RSVP Button -->
+      <button
+        id="open-rsvp-btn"
+        type="button"
+        class="reveal group inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-crimson via-crimsonBright to-crimson px-12 sm:px-16 py-4 sm:py-5 font-display text-3xl sm:text-4xl tracking-[0.22em] text-white shadow-[0_0_38px_rgba(229,9,20,0.48)] hover:shadow-[0_0_62px_rgba(229,9,20,0.82)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+      >
+        <svg class="w-9 h-4 text-obsidian group-hover:text-white transition-colors" viewBox="0 0 240 86" fill="currentColor" aria-hidden="true">
+          <path d="M120 14 L114 27 L108 18 L105 32 C92 32 77 26 64 16 C51 28 30 31 6 25 C23 38 33 48 40 58 C50 49 66 48 80 54 C90 47 104 50 113 62 L120 76 L127 62 C136 50 150 47 160 54 C174 48 190 49 200 58 C207 48 217 38 234 25 C210 31 189 28 176 16 C163 26 148 32 135 32 L132 18 L126 27 Z" />
+        </svg>
+        <span>SUIT UP</span>
+      </button>
+
+      <!-- Closing Sign-Off -->
+      <h2 class="reveal reveal-d1 mt-16 font-display text-4xl sm:text-6xl md:text-7xl tracking-[0.24em] text-white crimson-glow">
+        SEE YOU AFTER DARK
+      </h2>
+
+      <!-- Red Bat Emblem -->
+      <svg class="reveal reveal-d2 mt-6 w-20 sm:w-24 h-auto text-crimsonBright drop-shadow-[0_0_18px_rgba(229,9,20,0.6)]" viewBox="0 0 240 86" fill="currentColor" aria-label="Red Bat Emblem">
+        <path d="M120 14 L114 27 L108 18 L105 32 C92 32 77 26 64 16 C51 28 30 31 6 25 C23 38 33 48 40 58 C50 49 66 48 80 54 C90 47 104 50 113 62 L120 76 L127 62 C136 50 150 47 160 54 C174 48 190 49 200 58 C207 48 217 38 234 25 C210 31 189 28 176 16 C163 26 148 32 135 32 L132 18 L126 27 Z" />
+      </svg>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       WORKING RSVP MODAL
+       ========================================================= -->
+  <div id="rsvp-modal" class="modal-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="rsvp-title">
+    <div class="relative w-full max-w-md rounded-3xl bg-[#0c0809] border border-crimsonBright/70 shadow-[0_0_60px_rgba(229,9,20,0.38)] p-6 sm:p-8 max-h-[92vh] overflow-y-auto">
+      <!-- Close Button -->
+      <button
+        id="close-rsvp-btn"
+        type="button"
+        aria-label="Close RSVP Modal"
+        class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/5 hover:bg-crimson/40 border border-white/15 flex items-center justify-center text-gray-300 hover:text-white transition-colors cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Form View -->
+      <div id="rsvp-form-view">
+        <div class="text-center mb-6">
+          <svg class="w-16 h-7 text-crimsonBright mx-auto mb-2" viewBox="0 0 240 86" fill="currentColor" aria-hidden="true">
+            <path d="M120 14 L114 27 L108 18 L105 32 C92 32 77 26 64 16 C51 28 30 31 6 25 C23 38 33 48 40 58 C50 49 66 48 80 54 C90 47 104 50 113 62 L120 76 L127 62 C136 50 150 47 160 54 C174 48 190 49 200 58 C207 48 217 38 234 25 C210 31 189 28 176 16 C163 26 148 32 135 32 L132 18 L126 27 Z" />
+          </svg>
+          <h3 id="rsvp-title" class="font-display text-4xl tracking-[0.16em] text-white">
+            SUIT UP &mdash; RSVP
+          </h3>
+          <p class="text-xs tracking-[0.22em] uppercase text-steel mt-1">
+            Confirm Your Presence
+          </p>
+        </div>
+
+        <form id="rsvp-form" class="space-y-4">
+          <div>
+            <label for="guest-name" class="block text-xs font-semibold tracking-[0.18em] uppercase text-gray-300 mb-1.5">
+              Your Name *
+            </label>
+            <input
+              id="guest-name"
+              type="text"
+              required
+              placeholder="Enter your name"
+              class="w-full rounded-xl bg-white/[0.04] border border-crimson/45 focus:border-crimsonBright focus:outline-none px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors"
+            />
+          </div>
+
+          <div>
+            <span class="block text-xs font-semibold tracking-[0.18em] uppercase text-gray-300 mb-2">
+              Attending *
+            </span>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="flex items-center justify-center gap-2 rounded-xl bg-white/[0.04] border border-crimson/45 hover:border-crimsonBright p-3 cursor-pointer">
+                <input type="radio" name="attending" value="Yes" checked class="accent-[#e50914] w-4 h-4" />
+                <span class="text-xs font-semibold tracking-wider uppercase text-white">I&apos;m In</span>
+              </label>
+              <label class="flex items-center justify-center gap-2 rounded-xl bg-white/[0.04] border border-white/15 hover:border-crimson/60 p-3 cursor-pointer">
+                <input type="radio" name="attending" value="No" class="accent-[#e50914] w-4 h-4" />
+                <span class="text-xs font-semibold tracking-wider uppercase text-gray-300">Can&apos;t Make It</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label for="guest-count" class="block text-xs font-semibold tracking-[0.18em] uppercase text-gray-300 mb-1.5">
+              Guests Count
+            </label>
+            <select
+              id="guest-count"
+              class="w-full rounded-xl bg-[#160a0c] border border-crimson/45 focus:border-crimsonBright focus:outline-none px-4 py-3 text-sm text-white transition-colors"
+            >
+              <option value="1">1 Guest (Solo)</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5+">5+ Guests (Squad)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="guest-message" class="block text-xs font-semibold tracking-[0.18em] uppercase text-gray-300 mb-1.5">
+              Message
+            </label>
+            <textarea
+              id="guest-message"
+              rows="2"
+              placeholder="Drop a wish for Hemant & Ranjana..."
+              class="w-full rounded-xl bg-white/[0.04] border border-crimson/45 focus:border-crimsonBright focus:outline-none px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <p id="rsvp-error" class="hidden text-xs text-crimsonBright font-medium"></p>
+
+          <button
+            type="submit"
+            class="w-full rounded-xl bg-gradient-to-r from-crimson to-crimsonBright hover:from-crimsonBright hover:to-crimson py-3.5 font-display text-2xl tracking-[0.22em] text-white shadow-lg shadow-crimsonBright/35 transition-all duration-300 cursor-pointer"
+          >
+            LOCK IT IN
+          </button>
+        </form>
+      </div>
+
+      <!-- Confirmation View -->
+      <div id="rsvp-confirm-view" class="hidden text-center py-6">
+        <div class="w-20 h-20 mx-auto rounded-full bg-crimson/20 border-2 border-crimsonBright flex items-center justify-center mb-5 shadow-[0_0_32px_rgba(229,9,20,0.7)] animate-pulse">
+          <svg class="w-12 h-6 text-crimsonBright" viewBox="0 0 240 86" fill="currentColor" aria-hidden="true">
+            <path d="M120 14 L114 27 L108 18 L105 32 C92 32 77 26 64 16 C51 28 30 31 6 25 C23 38 33 48 40 58 C50 49 66 48 80 54 C90 47 104 50 113 62 L120 76 L127 62 C136 50 150 47 160 54 C174 48 190 49 200 58 C207 48 217 38 234 25 C210 31 189 28 176 16 C163 26 148 32 135 32 L132 18 L126 27 Z" />
+          </svg>
+        </div>
+        <h3 class="font-display text-4xl sm:text-5xl tracking-[0.16em] text-crimsonBright crimson-glow">
+          SIGNAL RECEIVED
+        </h3>
+        <p id="confirm-headline" class="mt-2 font-cinzel text-xs sm:text-sm tracking-[0.24em] uppercase text-white font-semibold">
+          SEE YOU AFTER DARK
+        </p>
+        <p id="confirm-summary" class="mt-4 text-xs sm:text-sm text-gray-300 leading-relaxed bg-white/[0.03] border border-crimson/35 rounded-xl p-4"></p>
+        <button
+          id="done-rsvp-btn"
+          type="button"
+          class="mt-6 rounded-xl bg-white/10 hover:bg-crimson border border-white/20 px-8 py-2.5 text-xs font-bold tracking-[0.24em] uppercase text-white transition-colors cursor-pointer"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       INTERACTIVE SCRIPTS
+       ========================================================= -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* 1. SCROLL REVEAL */
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.14 }
+        );
+        revealEls.forEach((el) => observer.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('visible'));
+      }
+
+      /* 2. FLYING BATS CANVAS (HERO) */
+      const batsCanvas = document.getElementById('bats-canvas');
+      const batsCtx = batsCanvas ? batsCanvas.getContext('2d') : null;
+      let bats = [];
+
+      function resizeBats() {
+        if (!batsCanvas) return;
+        const rect = batsCanvas.parentElement.getBoundingClientRect();
+        batsCanvas.width = rect.width;
+        batsCanvas.height = rect.height;
+      }
+
+      function createBat(randomX = false) {
+        const w = batsCanvas.width || window.innerWidth;
+        const h = batsCanvas.height || window.innerHeight;
+        return {
+          x: randomX ? Math.random() * w : -40 - Math.random() * 100,
+          y: h * (0.08 + Math.random() * 0.72),
+          size: 7 + Math.random() * 11,
+          vx: 0.8 + Math.random() * 1.5,
+          vy: (Math.random() - 0.5) * 0.45,
+          phase: Math.random() * Math.PI * 2,
+          wingSpeed: 0.14 + Math.random() * 0.12,
+          alpha: 0.55 + Math.random() * 0.38,
+        };
+      }
+
+      function initBats() {
+        if (!batsCanvas) return;
+        resizeBats();
+        const count = window.innerWidth < 640 ? 14 : 24;
+        bats = [];
+        for (let i = 0; i < count; i++) bats.push(createBat(true));
+      }
+
+      function animateBats() {
+        if (!batsCtx || !batsCanvas) return;
+        batsCtx.clearRect(0, 0, batsCanvas.width, batsCanvas.height);
+        for (let i = 0; i < bats.length; i++) {
+          const b = bats[i];
+          b.x += b.vx;
+          b.y += b.vy + Math.sin(b.phase * 0.35) * 0.25;
+          b.phase += b.wingSpeed;
+
+          const flap = Math.sin(b.phase) * (b.size * 0.48);
+          batsCtx.save();
+          batsCtx.translate(b.x, b.y);
+          batsCtx.fillStyle = `rgba(5, 5, 5, ${b.alpha})`;
+          batsCtx.beginPath();
+          batsCtx.moveTo(0, 0);
+          batsCtx.quadraticCurveTo(-b.size * 0.65, -b.size * 0.55 + flap, -b.size * 1.35, flap);
+          batsCtx.quadraticCurveTo(-b.size * 0.7, b.size * 0.25, -b.size * 0.25, b.size * 0.18);
+          batsCtx.lineTo(0, b.size * 0.34);
+          batsCtx.lineTo(b.size * 0.25, b.size * 0.18);
+          batsCtx.quadraticCurveTo(b.size * 0.7, b.size * 0.25, b.size * 1.35, flap);
+          batsCtx.quadraticCurveTo(b.size * 0.65, -b.size * 0.55 + flap, 0, 0);
+          batsCtx.closePath();
+          batsCtx.fill();
+          batsCtx.restore();
+
+          if (b.x > batsCanvas.width + 50) bats[i] = createBat(false);
+        }
+        requestAnimationFrame(animateBats);
+      }
+
+      /* 3. RED-TINTED RAIN CANVAS (SECTION 2) */
+      const rainCanvas = document.getElementById('rain-canvas');
+      const rainCtx = rainCanvas ? rainCanvas.getContext('2d') : null;
+      let drops = [];
+
+      function resizeRain() {
+        if (!rainCanvas) return;
+        const rect = rainCanvas.parentElement.getBoundingClientRect();
+        rainCanvas.width = rect.width;
+        rainCanvas.height = rect.height;
+      }
+
+      function initRain() {
+        if (!rainCanvas) return;
+        resizeRain();
+        const count = window.innerWidth < 640 ? 70 : 130;
+        drops = [];
+        for (let i = 0; i < count; i++) {
+          drops.push({
+            x: Math.random() * rainCanvas.width,
+            y: Math.random() * rainCanvas.height,
+            len: 12 + Math.random() * 20,
+            vy: 9 + Math.random() * 9,
+            vx: -1.4 - Math.random() * 1.1,
+            alpha: 0.16 + Math.random() * 0.28,
+          });
+        }
+      }
+
+      function animateRain() {
+        if (!rainCtx || !rainCanvas) return;
+        rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
+        rainCtx.lineWidth = 1;
+        for (let i = 0; i < drops.length; i++) {
+          const d = drops[i];
+          rainCtx.strokeStyle = `rgba(229, 9, 20, ${d.alpha})`;
+          rainCtx.beginPath();
+          rainCtx.moveTo(d.x, d.y);
+          rainCtx.lineTo(d.x + d.vx * 1.4, d.y + d.len);
+          rainCtx.stroke();
+
+          d.x += d.vx;
+          d.y += d.vy;
+          if (d.y > rainCanvas.height) {
+            d.y = -d.len;
+            d.x = Math.random() * (rainCanvas.width + 80);
+          }
+          if (d.x < -20) d.x = rainCanvas.width + 20;
+        }
+        requestAnimationFrame(animateRain);
+      }
+
+      /* 4. LIGHTNING FLASH & INTERACTIVE BAT-SIGNAL */
+      const lightning = document.getElementById('lightning-flash');
+      const signalSection = document.getElementById('signal-section');
+      const signalBtn = document.getElementById('bat-signal-btn');
+      const signalStatus = document.getElementById('signal-status');
+      const signalLines = [
+        'Signal Activated — 03.03.27 Awaits',
+        'Triyuginarayan Calls — See You There',
+        'Hemant & Ranjana — The Night Is Ours',
+        'When The Night Calls, We Answer',
+      ];
+      let lineIdx = 0;
+
+      function triggerLightning() {
+        if (!lightning) return;
+        lightning.style.opacity = '0.82';
+        setTimeout(() => {
+          lightning.style.opacity = '0';
+          setTimeout(() => {
+            lightning.style.opacity = '0.45';
+            setTimeout(() => {
+              lightning.style.opacity = '0';
+            }, 95);
+          }, 85);
+        }, 105);
+      }
+
+      if (signalBtn && signalSection) {
+        signalBtn.addEventListener('click', () => {
+          triggerLightning();
+          signalSection.classList.add('signal-ignited');
+          if (signalStatus) {
+            signalStatus.textContent = signalLines[lineIdx % signalLines.length];
+            signalStatus.classList.add('text-white');
+            lineIdx++;
+          }
+          setTimeout(() => {
+            signalSection.classList.remove('signal-ignited');
+            if (signalStatus) signalStatus.classList.remove('text-white');
+          }, 1500);
+        });
+      }
+
+      /* 5. LIVE COUNTDOWN (MARCH 3, 2027 00:00:00 IST) */
+      const targetTime = new Date('2027-03-03T00:00:00+05:30').getTime();
+      const cdDays = document.getElementById('cd-days');
+      const cdHours = document.getElementById('cd-hours');
+      const cdMinutes = document.getElementById('cd-minutes');
+      const cdSeconds = document.getElementById('cd-seconds');
+      const cdStatus = document.getElementById('cd-status');
+
+      function updateCountdown() {
+        const diff = targetTime - Date.now();
+        if (diff <= 0) {
+          if (cdDays) cdDays.textContent = '00';
+          if (cdHours) cdHours.textContent = '00';
+          if (cdMinutes) cdMinutes.textContent = '00';
+          if (cdSeconds) cdSeconds.textContent = '00';
+          if (cdStatus) cdStatus.textContent = 'THE WEDDING DAY HAS ARRIVED!';
+          return;
+        }
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / (1000 * 60)) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+
+        if (cdDays) cdDays.textContent = String(d).padStart(2, '0');
+        if (cdHours) cdHours.textContent = String(h).padStart(2, '0');
+        if (cdMinutes) cdMinutes.textContent = String(m).padStart(2, '0');
+        if (cdSeconds) cdSeconds.textContent = String(s).padStart(2, '0');
+      }
+
+      /* 6. AUTO-SCROLL REEL MODE */
+      const reelBtn = document.getElementById('reel-toggle-btn');
+      const reelLabel = document.getElementById('reel-label');
+      const reelDot = document.getElementById('reel-dot');
+      let autoScrolling = false;
+      let scrollRaf = null;
+      let lastTs = null;
+
+      function stopReel() {
+        autoScrolling = false;
+        if (scrollRaf) cancelAnimationFrame(scrollRaf);
+        scrollRaf = null;
+        lastTs = null;
+        if (reelLabel) reelLabel.textContent = 'AUTO-SCROLL REEL MODE';
+        if (reelBtn) {
+          reelBtn.classList.remove('bg-crimsonBright', 'border-white');
+          reelBtn.classList.add('bg-obsidian/85', 'border-crimsonBright/80');
+        }
+        if (reelDot) {
+          reelDot.classList.remove('bg-white');
+          reelDot.classList.add('bg-crimsonBright');
+        }
+      }
+
+      function stepReel(ts) {
+        if (!autoScrolling) return;
+        if (!lastTs) lastTs = ts;
+        const delta = Math.min(ts - lastTs, 50);
+        lastTs = ts;
+        window.scrollBy(0, (delta / 1000) * 130);
+
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+          stopReel();
+          return;
+        }
+        scrollRaf = requestAnimationFrame(stepReel);
+      }
+
+      function startReel() {
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40) {
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+        autoScrolling = true;
+        lastTs = null;
+        if (reelLabel) reelLabel.textContent = 'STOP REEL MODE';
+        if (reelBtn) {
+          reelBtn.classList.remove('bg-obsidian/85', 'border-crimsonBright/80');
+          reelBtn.classList.add('bg-crimsonBright', 'border-white');
+        }
+        if (reelDot) {
+          reelDot.classList.remove('bg-crimsonBright');
+          reelDot.classList.add('bg-white');
+        }
+        scrollRaf = requestAnimationFrame(stepReel);
+      }
+
+      if (reelBtn) {
+        reelBtn.addEventListener('click', () => {
+          if (autoScrolling) stopReel();
+          else startReel();
+        });
+      }
+      window.addEventListener('wheel', () => { if (autoScrolling) stopReel(); }, { passive: true });
+      window.addEventListener('touchstart', (e) => {
+        if (autoScrolling && reelBtn && !reelBtn.contains(e.target)) stopReel();
+      }, { passive: true });
+
+      /* 7. WORKING RSVP MODAL */
+      const modal = document.getElementById('rsvp-modal');
+      const openBtn = document.getElementById('open-rsvp-btn');
+      const closeBtn = document.getElementById('close-rsvp-btn');
+      const doneBtn = document.getElementById('done-rsvp-btn');
+      const form = document.getElementById('rsvp-form');
+      const formView = document.getElementById('rsvp-form-view');
+      const confirmView = document.getElementById('rsvp-confirm-view');
+      const errorEl = document.getElementById('rsvp-error');
+      const confirmHeadline = document.getElementById('confirm-headline');
+      const confirmSummary = document.getElementById('confirm-summary');
+
+      function openModal() {
+        if (!modal) return;
+        stopReel();
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      if (openBtn) openBtn.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (doneBtn) {
+        doneBtn.addEventListener('click', () => {
+          closeModal();
+          setTimeout(() => {
+            if (confirmView && formView) {
+              confirmView.classList.add('hidden');
+              formView.classList.remove('hidden');
+              form.reset();
+            }
+          }, 220);
+        });
+      }
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeModal();
+      });
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const nameVal = document.getElementById('guest-name').value.trim();
+          if (!nameVal) {
+            errorEl.textContent = 'Please enter your name.';
+            errorEl.classList.remove('hidden');
+            return;
+          }
+          errorEl.classList.add('hidden');
+
+          const attending = form.querySelector('input[name="attending"]:checked').value;
+          const count = document.getElementById('guest-count').value;
+          const msg = document.getElementById('guest-message').value.trim();
+
+          confirmHeadline.textContent = attending === 'Yes' ? 'SEE YOU AFTER DARK' : 'WE WILL MISS YOU!';
+          const safeName = nameVal.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          const safeMsg = msg.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+          confirmSummary.innerHTML =
+            `<strong class="text-white">${safeName}</strong> &bull; Attending: <span class="text-crimsonBright font-semibold">${attending}</span>` +
+            (attending === 'Yes' ? ` (${count} ${count === '1' ? 'Guest' : 'Guests'})` : '') +
+            (safeMsg ? `<span class="block mt-2 italic text-gray-400">"${safeMsg}"</span>` : '');
+
+          formView.classList.add('hidden');
+          confirmView.classList.remove('hidden');
+          triggerLightning();
+        });
+      }
+
+      /* 8. INIT ON LOAD */
+      window.addEventListener('load', () => {
+        initBats();
+        initRain();
+        animateBats();
+        animateRain();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      });
+
+      window.addEventListener('resize', () => {
+        resizeBats();
+        resizeRain();
+      });
+    })();
+  </script>
+</body>
+</html>
